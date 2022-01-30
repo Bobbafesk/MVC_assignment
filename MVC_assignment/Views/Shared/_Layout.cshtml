@@ -7,21 +7,22 @@
 </head>
 <body>
     <header>
-        <img src="images/cafeLogo.jpg" alt="café logo" style="width:200px;height:120px;">
-        <nav>
+        <h1>Logo</h1>
+        <!-- <img src="images/cafeLogo.jpg" alt="café logo" style="width:200px;height:120px;"> -->
+            <nav>
 
-            <div>@Html.ActionLink("Home", "Index", "Home") </div>
-            <div>@Html.ActionLink("About", "About", "Home") </div>
-            <div>@Html.ActionLink("Contact", "Contact", "Home") </div>
-            <div>@Html.ActionLink("Projects", "Projects", "Home") </div>
+                <div>@Html.ActionLink("Home", "Index", "Home") </div>
+                <div>@Html.ActionLink("About", "About", "Home") </div>
+                <div>@Html.ActionLink("Contact", "Contact", "Home") </div>
+                <div>@Html.ActionLink("Projects", "Projects", "Home") </div>
 
-        </nav>
-    </header>
-    <h2>Name: Anders Smith</h2>
-    <div>
-        @RenderBody()
-    </div>
+            </nav>
+        </header>
+        <h2>Name: Anders Smith</h2>
+        <div>
+            @RenderBody()
+        </div>
 
-    <footer>@DateTime.Now.ToString("yyyy-MM-dd") Anders Torin</footer>
-</body>
-</html>
+        <footer>@DateTime.Now.ToString("yyyy-MM-dd") Anders Torin</footer>
+    </body>
+    </html>

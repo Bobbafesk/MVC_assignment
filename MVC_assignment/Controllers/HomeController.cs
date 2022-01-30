@@ -30,7 +30,8 @@ namespace MVC_assignment.Controllers
         {
             ViewBag.adress = "Bond street 1, London, England.";
             ViewBag.mobile = "+44 70 255255";
-            ViewBag.email = "elev@lexicon.com";
+            ViewBag.email = "a.torin@gmail.com";
+
             return View();
         }
         public IActionResult Projects()
