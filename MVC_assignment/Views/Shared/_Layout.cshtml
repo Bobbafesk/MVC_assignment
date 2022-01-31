@@ -8,16 +8,20 @@
 <body>
     <header>
         <h1>Logo</h1>
-        <!-- <img src="images/cafeLogo.jpg" alt="café logo" style="width:200px;height:120px;"> -->
-            <nav>
+        <!-- The tilde ~/images  is to get the image at wwwroot -->
+        <img src="~/images/cafeLogo.jpg" alt="café logo" style="width:200px;height:120px" />
 
-                <div>@Html.ActionLink("Home", "Index", "Home") </div>
-                <div>@Html.ActionLink("About", "About", "Home") </div>
-                <div>@Html.ActionLink("Contact", "Contact", "Home") </div>
-                <div>@Html.ActionLink("Projects", "Projects", "Home") </div>
+        <nav>
 
-            </nav>
-        </header>
+            <div>@Html.ActionLink("Home", "Index", "Home") </div>
+            <div>@Html.ActionLink("About", "About", "Home") </div>
+            <div>@Html.ActionLink("Contact", "Contact", "Home") </div>
+            <div>@Html.ActionLink("Projects", "Projects", "Home") </div>
+            <div>@Html.ActionLink("Doctor for you", "Index", "Doctor") </div>
+            <div>@Html.ActionLink("Check if fever", "FeverCheck", "Doctor")</div>
+
+        </nav>
+    </header>
         <h2>Name: Anders Smith</h2>
         <div>
             @RenderBody()

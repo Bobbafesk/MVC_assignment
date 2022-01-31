@@ -9,8 +9,7 @@ namespace MVC_assignment.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {
-            
+        { 
             return View();
         }
 

@@ -35,10 +35,17 @@ namespace MVC_assignment
 
             app.UseEndpoints(endpoints =>
             {
+                // custom routing
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{Id?}"
-                    );
+                    name: "FeverCheck",
+                    pattern: "FeverCheck", // What to write in browser to for custom routing
+                    defaults: new { controller = "Doctor", action = "FeverCheck" });
+
+                // Default router
+                endpoints.MapControllerRoute(
+                     name: "default",
+                     pattern: "{controller=Home}/{action=Index}/{Id?}");
+
             });
         }
     }
