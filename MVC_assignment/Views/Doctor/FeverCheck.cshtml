@@ -9,11 +9,8 @@
 
 <form asp-controller="Doctor" asp-action="FeverCheck" method="post">
     <label>Temperature:</label>
-    
-
-    <input type="number" id="temp" onchange="checkTemp()" />
-    <button onchange="checkTemp()">Titta temperaturen</button>
-
+    <input type="number" min="20" max="43" name="temp" required/>
+    <input type="submit" value="Check Temperature"/>
 
 </form>
 
@@ -21,3 +18,4 @@
 {
     <p>@ViewBag.message</p>
 }
+
