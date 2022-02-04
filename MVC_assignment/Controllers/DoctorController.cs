@@ -14,6 +14,7 @@ namespace MVC_assignment.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult FeverCheck()
         {
             return View();

@@ -18,6 +18,8 @@ namespace MVC_assignment
         {
             //services.AddMvc();
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,8 +32,8 @@ namespace MVC_assignment
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
@@ -40,6 +42,12 @@ namespace MVC_assignment
                     name: "FeverCheck",
                     pattern: "FeverCheck", // What to write in browser to for custom routing
                     defaults: new { controller = "Doctor", action = "FeverCheck" });
+
+                endpoints.MapControllerRoute(
+                    name: "GuessingGame",
+                    pattern: "GuessingGame", // What to write in browser to for custom routing
+                    defaults: new { controller = "Home", action = "GuessingGame" });
+
 
                 // Default router
                 endpoints.MapControllerRoute(

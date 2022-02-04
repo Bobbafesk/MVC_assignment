@@ -11,13 +11,12 @@ namespace MVC_assignment.Models
         {
             if (temp > 37)
             {
-                return "You got fever";
+                return "You got fever.";
             }
             else
             {
-                return "You got No fever";
+                return "You got No fever.";
             }
-
         }
     }
 }

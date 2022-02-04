@@ -1,4 +1,6 @@
-﻿ using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MVC_assignment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +49,45 @@ namespace MVC_assignment.Controllers
             ViewBag.description5 = "The game Sokoban.";
             ViewBag.project6 = "https://github.com/Bobbafesk/MVC_assignment";
             ViewBag.description6 = "MVC project.";
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult GuessingGame()
+        {
+            if (HttpContext.Session.GetInt32("RndNumb") == null )
+            {
+                int rndNumber = GuessNumberModel.GenerateRandomNumber();
+                HttpContext.Session.SetInt32("RndNumb", rndNumber);
+            }
+            
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult GuessingGame(int guessedNumber)
+        {
+            //Check if session has timed out
+            if (HttpContext.Session.GetInt32("RndNumb") != null) 
+            {
+                // Session is not expired
+
+                int rndNumber = (int)HttpContext.Session.GetInt32("RndNumb");
+                ViewBag.numberMessage = GuessNumberModel.GuessANumber(guessedNumber, rndNumber);
+
+                    // To check if the right number is gueesed
+                    if (ViewBag.numberMessage == $"Well done! The answer was {rndNumber}.")
+                    {
+                        //GuessingGame is Reset
+                        HttpContext.Session.Remove("RndNumb");
+                        GuessingGame();
+                    }
+            }
+            else
+            {
+                //Session is expired
+                ViewBag.numberMessage = "Session is ended, please click on the link - Guess the number, again.";
+            }
             return View();
         }
     }
